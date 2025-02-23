@@ -32,3 +32,5 @@ while True:
     if should_continue == 'n':
         print("Thanks for playing!")
         break
+    elif should_continue == 'y':
+        continue

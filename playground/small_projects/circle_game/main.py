@@ -1,8 +1,8 @@
 import pygame
 from pygame.locals import *
-import random
-import character as char
+import character
 from screen_variables import *
+
 
 pygame.init()
 
@@ -29,29 +29,32 @@ def draw_bg():
     screen.fill(bg_blue)
 
 
+# sprite groups
 character_group = pygame.sprite.Group()
+main_tile_group = pygame.sprite.Group()
 
-character = char.Character(int(SCREEN_WIDTH/2), SCREEN_HEIGHT - 100)
+
+character = character.Character(int(SCREEN_WIDTH/2), SCREEN_HEIGHT - 100)
 character_group.add(character)
+
 
 run = True
 while run:
-
     clock.tick(fps)
 
     # draw background
     draw_bg()
+
+    # event handlers
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            run = False
 
     # update
     character_group.update()
 
     # draw sprite groups
     character_group.draw(screen)
-
-    # event handlers
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            run = False
 
     pygame.display.update()
 

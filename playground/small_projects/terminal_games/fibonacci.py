@@ -16,7 +16,6 @@ def fib_seq(second):
 
     for x in range(1, second):
         print(a + b)
-        print('')
         c = a + b
         a = b
         b = c

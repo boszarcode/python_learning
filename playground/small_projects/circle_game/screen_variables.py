@@ -1,4 +1,4 @@
 # setting game variables
 
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600
+SCREEN_WIDTH = 832  # 13 rows
+SCREEN_HEIGHT = 640  # 10 columns

@@ -1,4 +1,5 @@
 import pygame
+from pygame.locals import *
 
 WIDTH = 1280
 HEIGHT = 750
@@ -15,9 +16,6 @@ dt = 0
 player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
 
 while running:
-    for event in pygame.event.get():
-        if event == pygame.QUIT:
-            running == False
 
     screen.fill('purple')
 
@@ -33,9 +31,12 @@ while running:
     if keys[pygame.K_d]:
         player_pos.x += SPEED * dt
 
-    pygame.display.flip()
-
     dt = clock.tick(60) / 1000
 
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    pygame.display.flip()
 
 pygame.quit()
